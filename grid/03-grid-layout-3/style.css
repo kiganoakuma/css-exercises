@@ -5,6 +5,10 @@
 
 .container {
   text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 0.333fr 0.333fr 4fr 0.333fr;
+  gap: 5px;
 }
 
 .container div {
@@ -17,15 +21,38 @@
 
 .header {
   background-color: #393f4d;
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  display: grid;
+  grid-template-columns: 2fr 4fr;
+  grid-template-rows: 1fr;
+}
+
+.menu {
+  display: grid;
+  align-items: center;
+}
+
+.menu ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
 }
 
 .menu ul,
 .menu li {
   font-size: 16px;
+  text-align: right;
+  list-style-type: none;
 }
 
 .sidebar {
-  background-color: #C50208;
+  background-color: #c50208;
+  grid-template-columns: 1 / 1;
+  grid-row: 2 / 4;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 20px;
 }
 
 .sidebar .photo {
@@ -34,18 +61,26 @@
   font-size: 12px;
   font-weight: normal;
   border-radius: 10px;
+  align-content: center;
 }
-
 
 .sidebar .side-content {
   background-color: white;
   color: black;
   font-size: 16px;
   font-weight: normal;
+  align-content: center;
 }
 
 .nav {
-  background-color: #C50208;
+  background-color: #c50208;
+  grid-column: 2 / -1;
+}
+
+.nav ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  list-style-type: none;
 }
 
 .nav ul li {
@@ -55,6 +90,29 @@
 
 .article {
   background-color: #bccbde;
+  grid-column: 2 / -1;
+  grid-row: 3 / 4;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates 2 columns by default */
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  padding: 10px;
+}
+
+/* Medium screens (e.g., tablets): 3 columns */
+@media (min-width: 600px) {
+  .article {
+    grid-template-columns: repeat(3, 1fr); /* Adjust to 3 columns */
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
+
+/* Larger screens (e.g., desktops): 4 columns */
+@media (min-width: 900px) {
+  .article {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr); /* Adjust to 4 columns */
+  }
 }
 
 .article p {
@@ -65,7 +123,7 @@
 }
 
 .article .card {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: black;
   text-align: center;
 }
@@ -83,6 +141,8 @@
 
 .footer {
   background-color: #393f4d;
+  grid-column: 1 /-1;
+  grid-row: 4 / 4;
 }
 
 .footer p {
